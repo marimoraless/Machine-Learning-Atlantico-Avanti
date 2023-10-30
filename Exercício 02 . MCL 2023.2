@@ -1,0 +1,25 @@
+Atividade 01 - MCL 2023.2 
+Exercício 2. Escreva uma função que receba duas listas e retorne outra lista com os elementos que estão presentes em apenas uma das listas.
+
+def listas_juntas(list1, list2):
+
+    elementos_unicos = list1 + list2
+
+    
+    elementos_unicos = set(elementos_unicos)
+
+  
+    contagem = {elemento: (list1.count(elemento), list2.count(elemento)) for elemento in elementos_unicos}
+
+    
+    elementos_unicos = [elemento for elemento, contagem in contagem.items() if contagem[0] == 0 or contagem[1] == 0]
+
+    return elementos_unicos
+
+
+list1 = input("Digite a primeira lista: ").replace(",", " ").split()
+list2 = input("Digite a segunda lista: ").replace(",", " ").split()
+
+
+resultado = listas_juntas(list1, list2)
+print("Elementos que estão presentes em apenas uma das listas:", resultado)
