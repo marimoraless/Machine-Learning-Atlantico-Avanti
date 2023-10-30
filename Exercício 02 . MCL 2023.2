@@ -3,18 +3,19 @@ Exercício 2. Escreva uma função que receba duas listas e retorne outra lista
 
 def listas_juntas(list1, list2):
 
-    elementos_unicos = list1 + list2
+    elementos_unicos = list1 + list2
 
-    
-    elementos_unicos = set(elementos_unicos)
+    
+    elementos_unicos = set(elementos_unicos)
 
-  
-    contagem = {elemento: (list1.count(elemento), list2.count(elemento)) for elemento in elementos_unicos}
+  
+    contagem = {elemento: (list1.count(elemento), list2.count(elemento)) for elemento in elementos_unicos}
 
-    
-    elementos_unicos = [elemento for elemento, contagem in contagem.items() if contagem[0] == 0 or contagem[1] == 0]
+    
+    elementos_unicos = [elemento for elemento, contagem in contagem.items() if contagem[0] == 0 or contagem[1] == 0]
 
-    return elementos_unicos
+    return elementos_unicos
+
 
 
 list1 = input("Digite a primeira lista: ").replace(",", " ").split()
