@@ -1,0 +1,24 @@
+Atividade 01 - MCL 2023.2
+Exercício 1. Escreva uma função que receba uma lista de números e retorne outra lista com os números primos presentes:
+
+def é_primo(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def lista_de_primos(numeros):
+    primos = []
+    for num in numeros:
+        if é_primo(num):
+            primos.append(num)
+    return primos
+
+numeros = list(map(int, input("Digite uma lista de números para verificar se é primo: ").replace(",", " ").split()))
+
+if numeros:
+    print(f"Números primos: {lista_de_primos(numeros)}")
+else:
+    print("Números primos: Nenhum número inserido")
