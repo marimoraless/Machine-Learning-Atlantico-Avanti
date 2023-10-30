@@ -1,0 +1,31 @@
+Atividade 01 - MCL 2023.2 
+Exercício 3- Dada uma lista de números inteiros, escreva uma função para encontrar o segundo maior valor na lista.
+def segunda_maior(lista):
+    
+    primeiro = float('-inf')
+    segundo = float('-inf')
+
+    for num in lista:
+    
+        if num > primeiro:
+            segundo = primeiro
+            primeiro = num
+    
+        elif num > segundo and num != primeiro:
+            segundo = num
+
+    
+    return segundo if segundo != float('-inf') else None
+
+
+
+lista = input("Digite uma lista de números inteiros: ").replace("," , " ").split()
+
+
+lista = list(map(int, lista))
+
+resultado = segunda_maior(lista)
+if resultado is not None:
+    print("O segundo maior valor da lista é:", resultado)
+else:
+    print("A lista não possui um segundo maior valor.")
