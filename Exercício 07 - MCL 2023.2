@@ -1,0 +1,17 @@
+Atividade 01 - MCL 2023.2 
+Exercício 7  - Utilizando pandas, como selecionar uma coluna específica e filtrar linhas em um “DataFrame” com base em uma condição?
+
+import pandas as pd
+
+df = pd.read_csv('arquivo.csv')
+
+coluna = df['nome_da_coluna']
+
+filtro = df['nome_da_coluna'] > valor
+df_filtrado = df[filtro]
+
+
+Explicação desse exmemplo de código: Para selecionar uma coluna específica e filtrar linhas em um DataFrame com base em uma condição, é necessário importar a biblioteca pandas para ler um arquivo CSV chamado no código de 'arquivo.csv'. 
+Após isso, ele seleciona a coluna que no código está como 'nome_da_coluna' e assim cria um filtro para armazenar apenas as linhas onde o valor dessa coluna é maior que 'valor'. 
+Assim ele aplica o filtro à variável df e armazena o resultado na variável df_filtrado.
+Com isso o código retorna uma tabela contendo todas as informações do arquivo CSV, mas apenas as linhas onde a coluna 'nome_da_coluna' possui um valor maior que 'valor' são colocadas na tabela final.
