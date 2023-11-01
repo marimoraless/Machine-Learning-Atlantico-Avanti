@@ -1,0 +1,25 @@
+Exercício 5 -  Dada uma lista contendo números inteiros, como você encontraria o maior número e o menor número dessa lista em uma única passagem?
+
+def encontrar_maior_e_menor(lista):
+    maior = lista[0]
+    menor = lista[0]
+
+    for num in lista:
+        if num > maior:
+            maior = num
+        elif num < menor:
+            menor = num
+
+    return maior, menor
+
+
+lista = input("Digite uma lista de números inteiros: ")
+
+
+lista = [int(num) for num in lista.replace(',', ' ').replace('.', ' ').split()]
+
+
+maior, menor = encontrar_maior_e_menor(lista)
+
+print("O maior número é:", maior)
+print("O menor número é:", menor)
