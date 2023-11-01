@@ -1,0 +1,17 @@
+Exercício 4 - Crie uma função que receba uma lista de tuplas, cada uma contendo o nome e a idade de uma pessoa, e retorne a lista ordenada pelo nome das pessoas em ordem alfabética.
+
+def main():
+    pessoas = []
+    while True:
+        nome = input("Digite o nome da pessoa (ou 'Pare' para encerrar a lista): ")
+        if nome.lower() == 'pare':
+            break
+        idade = int(input("Digite a idade da pessoa: "))
+        pessoas.append((nome, idade))
+    pessoas_ordenadas = sorted(pessoas, key=lambda tupla: tupla[0])
+    print("\nLista de pessoas em ordem alfabética:")
+    for pessoa in pessoas_ordenadas:
+        print(f"{pessoa[0]}, {pessoa[1]} anos")
+
+if __name__ == "__main__":
+    main()
