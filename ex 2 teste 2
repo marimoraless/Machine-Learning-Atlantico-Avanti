@@ -1,0 +1,45 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+def media(imagem, k):
+    imagem = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+    (altura, largura) = imagem.shape
+    blur = np.zeros((altura, largura), dtype="float32")
+
+    for i in range(k):
+        for j in range(k):
+            blur += imagem[i:altura-i, j:largura-j]
+
+    blur = blur / (k * k)
+    blur = blur.clip(0, 255).astype(np.uint8)
+
+    return blur
+
+def mediana(imagem, k):
+    imagem = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+    (altura, largura) = imagem.shape
+    mediana = np.zeros((altura, largura), dtype="float32")
+
+    for i in range(k):
+        for j in range(k):
+            mediana += cv2.medianBlur(imagem[i:altura-i, j:largura-j], 5)
+
+    mediana = mediana / (k * k)
+    mediana = mediana.clip(0, 255).astype(np.uint8)
+
+    return mediana
+
+def gaussiano(imagem, k):
+    return cv2.GaussianBlur(imagem, (k, k), 0)
+
+def plot_filters(original, media, mediana, gaussiano):
+    plt.figure(figsize=(20,10))
+
+    plt.subplot(2,5,1), plt.imshow(original)
+    plt.title('Original'), plt.xticks([]), plt.yticks([])
+
+    plt.subplot(2,5,2), plt.imshow(media)
+    plt.title('Media'), plt.xticks([]), plt.yticks([])
+
+    plt.subplot(2
