@@ -1,0 +1,27 @@
+2 - Faça a leitura de uma imagem de entrada 2D colorida qualquer e aplique o
+filtro da média, mediana e gaussiano na imagem de entrada. Mostre os
+resultados de cada filtro por meio da biblioteca matplotlib.
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+img = cv2.imread('input_image.jpg')
+
+
+avg_kernel = np.ones((5,5), np.float32)/25
+avg_filtered = cv2.filter2D(img, -1, avg_kernel)
+
+
+median_filtered = cv2.medianBlur(img, 5)
+
+
+gaussian_filtered = cv2.GaussianBlur(img, (5,5), 0)
+
+
+plt.subplot(2,2,1), plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)), plt.title('Input')
+plt.subplot(2,2,2), plt.imshow(cv2.cvtColor(avg_filtered, cv2.COLOR_BGR2RGB)), plt.title('Average')
+plt.subplot(2,2,3), plt.imshow(cv2.cvtColor(median_filtered, cv2.COLOR_BGR2RGB)), plt.title('Median')
+plt.subplot(2,2,4), plt.imshow(cv2.cvtColor(gaussian_filtered, cv2.COLOR_BGR2RGB)), plt.title('Gaussian')
+plt.show()
